@@ -1,3 +1,16 @@
+---
+title: {{Scenes From Tomorrow}}
+emoji: {{🏞️}}
+colorFrom: {{blue}}
+colorTo: {{green}}
+sdk: {{docker}}
+sdk_version: {{3.9.10}}
+suggested_hardware: {{t4-medium}}
+short_description: {{"LLM-agent powered app to help people see the future impact of climate change on their location, and take action"}}
+app_file: app.py
+pinned: false
+---
+
 This chainlit app will use an [OpenAI Assistant](https://platform.openai.com/docs/assistants/overview) and the amazing [Probable futures](https://probablefutures.org/) API to provide 
 climate change information for a location, and provide some helpful resources for how to prepare.
 
