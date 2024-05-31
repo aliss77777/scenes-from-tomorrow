@@ -279,17 +279,17 @@ async def run_conversation(message_from_ui: cl.Message):
                                         elif res_feedback.get("value") in ["no_good", "IDK"]:
                                             res_reason = await cl.AskUserMessage(content="Could you please tell us why?").send()
 
-                                            # Step 4: Capture user open-ended comments and write to a CSV file
-                                            filename = f"feedback_logs/feedback_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                                            # Step 4: Capture user open-ended comments and write to a CSV file // UPDATE: Literal.AI data layer handles this
+                                            #filename = f"feedback_logs/feedback_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
                                             
-                                            with open(filename, "a", newline='') as csvfile:
-                                                feedback_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-                                                # Write column headers if the file is new/empty
-                                                if csvfile.tell() == 0:
-                                                    feedback_writer.writerow(["Thread ID", "Feedback Value", "Reason Output"])
-                                                # Assuming thread_id is available from earlier in your session
-                                                thread = cl.user_session.get("thread")
-                                                feedback_writer.writerow([thread.id, res_feedback.get('value'), res_reason['output'] if res_reason['output'] is not None else ''])
+                                            #with open(filename, "a", newline='') as csvfile:
+                                            #    feedback_writer = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                                            #    # Write column headers if the file is new/empty
+                                            #    if csvfile.tell() == 0:
+                                            #        feedback_writer.writerow(["Thread ID", "Feedback Value", "Reason Output"])
+                                            #    # Assuming thread_id is available from earlier in your session
+                                            #    thread = cl.user_session.get("thread")
+                                            #    feedback_writer.writerow([thread.id, res_feedback.get('value'), res_reason['output'] if res_reason['output'] is not None else ''])
                                             
                                             thank_you_message = cl.Message(author="Climate Change Assistant", content="Thanks for your feedback!")
                                             await thank_you_message.send()

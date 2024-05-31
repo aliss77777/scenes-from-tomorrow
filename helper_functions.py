@@ -28,7 +28,7 @@ pf_api_url = "https://graphql.probablefutures.org"
 #pf_token_url = "https://probablefutures.us.auth0.com/oauth/token"
 
 load_dotenv()
-api_key = os.environ.get("OPENAI_API_KEY")
+api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 model = "gpt-4o" #"gpt-4-0125-preview"  # gpt-4 #gpt-3.5-turbo-16k
