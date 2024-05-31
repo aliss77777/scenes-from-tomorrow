@@ -3,10 +3,10 @@ title:  Scenes From Tomorrow
 emoji: 🏞️
 colorFrom: blue
 colorTo: green
-sdk: {{docker}}
-sdk_version: "{{3.9.10}}"
-suggested_hardware: {{"t4-medium"}}
-short_description: {{"LLM-agent powered app to help people see the future impact of climate change on their location, and take action"}}
+sdk: docker
+sdk_version: "3.10"
+suggested_hardware: t4-medium
+short_description: LLM-agent powered app to help people see the future impact of climate change on their location, and take action
 app_file: app.py
 pinned: false
 ---
