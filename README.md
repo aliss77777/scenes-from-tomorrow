@@ -6,7 +6,7 @@ colorTo: green
 sdk: docker
 sdk_version: "3.10"
 suggested_hardware: t4-medium
-short_description: LLM-agent powered app to help people see the future impact of climate change on their location, and take action
+short_description: LLM-agent to help people take action on Climate Change
 app_file: app.py
 pinned: false
 ---
