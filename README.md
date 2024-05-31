@@ -1,8 +1,8 @@
 ---
-title: {{"Scenes From Tomorrow"}}
-emoji: {{🏞️}}
-colorFrom: {{blue}}
-colorTo: {{green}}
+title:  Scenes From Tomorrow 
+emoji: 🏞️
+colorFrom: blue
+colorTo: green
 sdk: {{docker}}
 sdk_version: "{{3.9.10}}"
 suggested_hardware: {{"t4-medium"}}
