@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 # using USER settings as recommended in this video https://www.youtube.com/watch?v=vP2JSAZLnRk
-RUN useradd -m - u 1000 user
+RUN useradd -m -u 1000 user
 
 USER user
 
