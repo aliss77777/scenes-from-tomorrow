@@ -10,10 +10,10 @@ ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH
 
 # Set the working directory in the container
-WORKDIR $HOME/climate-change-assistant
+WORKDIR $HOME
 
 # Copy the current directory contents into the container
-COPY . /climate-change-assistant
+#COPY .
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
