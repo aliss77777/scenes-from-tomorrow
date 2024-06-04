@@ -185,7 +185,7 @@ async def run_conversation(message_from_ui: cl.Message):
 
                                     while res and res.get("value") == "question":
 
-                                        question = await cl.AskUserMessage(content='How can I help?', timeout=600).send()
+                                        question = await cl.AskUserMessage(content='How can I help?', timeout=180).send()
     
                                         # Use this to send the output of completion request into the next OpenAI API call.
                                         question_response = hf.summary_completion(address, country, output, question['output'])
@@ -233,7 +233,7 @@ async def run_conversation(message_from_ui: cl.Message):
 
                                         while res and res.get("value") == "question":
 
-                                            question = await cl.AskUserMessage(content='How can I help?', timeout=600).send()
+                                            question = await cl.AskUserMessage(content='How can I help?', timeout=180).send()
         
                                             # Use this to send the output of completion request into the next OpenAI API call.
                                             question_response = hf.summary_completion(address, country, output, question['output'])
@@ -259,7 +259,7 @@ async def run_conversation(message_from_ui: cl.Message):
                                                                                 actions=[
                                                                                     cl.Action(name="yes", value="yes", label="✅ Yes"),
                                                                                     cl.Action(name="no", value="no", label="🚫 No")],
-                                                                                timeout=600).send()
+                                                                                timeout=180).send()
 
                                     # Only proceed if they want to give feedback
                                     if res_want_feedback.get("value") == "yes":
@@ -269,7 +269,7 @@ async def run_conversation(message_from_ui: cl.Message):
                                                                                     cl.Action(name="good", value="good", label="😀 Good. I'm ready to take action"),
                                                                                     cl.Action(name="IDK", value="IDK", label="😐 Not sure"),
                                                                                     cl.Action(name="no_good", value="no_good", label="🙁 Not good"),], 
-                                                                                timeout=600).send()
+                                                                                timeout=180).send()
 
                                         if res_feedback.get("value") == "good":
                                             thank_you_message = cl.Message(author="Climate Change Assistant", content="Thanks for your feedback!")
