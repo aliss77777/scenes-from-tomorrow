@@ -83,7 +83,7 @@ drought, parched land, hazy air, wildfire smoke, sunset, high detail
 '''
 
 
-timeline_message = '''We'll take a look at 3 points in time. First we'll look at today, where temperatures will soon reach the 1.5°C warming level. Then, we'll look at the 2.0° scenario, which could arrive in the 2040's, and then the extreme 3.0°C scenario which could arrive by 2075.'''
+timeline_message = '''We'll take a look at 3 points in time. First we'll look at today, where global average temperatures will soon reach the 1.5°C warming level. Then, we'll look at the 2.0° scenario, which could arrive in the 2040's, and then the extreme 3.0°C scenario which could arrive in the mid-2060's on our current path of emissions.'''
 
 
 one_five_degree_prompt = """
@@ -93,6 +93,7 @@ You are describing a 1.5°C warming scenario which is already here today. The ch
 Create no more than 2-3 sentences, at the 9th or 10th grade reading level, based on the Data and Storytelling tips, and Example Story below.
 Please talk about how climate change is going to have a negative impact on daily life as it exists today.
 Don't be too negative, but don't be overly optimistic either. Just be direct and clear.  Don't use technical language.
+Make sure to mention the +1.5°C global average temperature warming scenario which has already happened.
 
 -----
 DATA FROM EXAMPLE LOCATION: DENVER COLORADO
@@ -112,7 +113,6 @@ STORYTELLING TIPS
 - provide additional details when strongly implied by the data, for example a rise in wildfire danger in dry climates or sea level rise in coastal ones
 - Make sure to describe what the area is known for today
 - Create no more than 2-3 sentences, at the 9th or 10th grade reading level 
-- Make sure to mention the 1.5°C warming scenario which has already happened.
         
 -----
 EXAMPLE OUTPUT       
@@ -126,7 +126,7 @@ You will use Probable Futures API to get data that describes predicted climate c
 Once you have the data, create no more than 2-3 sentences, at the 9th or 10th grade reading level, telling about how climate change is going to impact life in that location based on the Data and Storytelling tips, and Example Story below.
 Please talk about how climate change is going to have a negative impact on daily life as it exists today.
 Don't be too negative, but don't be overly optimistic either. Just be direct and clear.  Don't use technical language.
-Make sure to mention the 2.0°C warming scenario.
+Make sure to mention the +2.0°C global average temperature warming scenario.
 
 ----
 DATA FROM EXAMPLE LOCATION: SAINT TROPEZ, FRANCE
@@ -167,7 +167,7 @@ You will use Probable Futures API to get data that describes predicted climate c
 Once you have the data, create no more than 2-3 sentences, at the 9th or 10th grade reading level, telling about how climate change is going to impact life in that location based on the Data and Storytelling tips, and Example Story below.
 Please talk about how climate change is going to have a negative impact on daily life as it exists today.
 Don't be too negative, but don't be overly optimistic either. Just be direct and clear.  Don't use technical language.
-Make sure to mention the 3.0°C warming scenario.  
+Make sure to mention the +3.0°C global average temperature warming scenario.  
 
 ----
 DATA FROM EXAMPLE LOCATION: PATAGONIA, ARGENTINA
@@ -209,6 +209,8 @@ The future you just saw is likely but not certain. We can overcome climate procr
 '''
 
 next_steps = '''
+In conclusion, please keep in mind that if we act rapidly to get to zero emissions and find ways to increase carbon stores, we can make reaching 3.0°C warming a low probability.
+
 What would you like to do next? You can ask me questions about the scenes you just saw or enter a new location.
 
 Also please give me a few second to process things before I can respond to your question. 🤖
