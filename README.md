@@ -14,7 +14,7 @@ pinned: false
 This chainlit app will use an [OpenAI Assistant](https://platform.openai.com/docs/assistants/overview) and the amazing [Probable futures](https://probablefutures.org/) API to provide 
 climate change information for a location, and provide some helpful resources for how to prepare.
 
-The chainlit app is based off the cookbook example [here](https://github.com/Chainlit/cookbook/tree/main/openai-assistant).
+The chainlit app is based off the cookbook example [here](https://github.com/Chainlit/cookbook/tree/main/openai-assistant). As of August 2024, in process of updates for newer version of OpenAI and Chainlit python libraries. 
 
 ![screenshot](./images/screenshot.png)
 
