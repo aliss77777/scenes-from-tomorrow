@@ -1,8 +1,9 @@
 import os
 import json
 from typing import Dict
+from typing import List
 
-from openai import AsyncOpenAI
+from openai import AsyncAssistantEventHandler, AsyncOpenAI, OpenAI
 from openai.types.beta.threads.run import Run
 
 from openai.types.beta import Thread
@@ -15,6 +16,8 @@ from openai.types.beta.threads import (
 import chainlit as cl
 from typing import Optional
 from chainlit.context import context
+from chainlit.config import config
+from chainlit.element import Element
 
 import assistant_tools as at
 import prompts as pr
@@ -22,20 +25,285 @@ import helper_functions as hf
 import datetime
 import csv
 
-from utils import DictToObject, stream_message, ask_to_continue, process_thread_message
+from utils import DictToObject, stream_message, ask_to_continue, process_thread_message, EventHandler
 
 api_key = os.environ.get("OPENAI_API_KEY")
-client = AsyncOpenAI(api_key=api_key)
-assistant_id = os.environ.get("ASSISTANT_ID")
+async_openai_client = AsyncOpenAI(api_key=api_key)
+sync_openai_client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+assistant = sync_openai_client.beta.assistants.retrieve(
+    os.environ.get("ASSISTANT_ID")
+)
+
+config.ui.name = assistant.name
+
+@cl.on_chat_start
+async def start_chat():
+    thread = await async_openai_client.beta.threads.create()
+    cl.user_session.set("thread_id", thread.id)
+    await cl.Avatar(name=assistant.name, path="./public/logo.png").send()
+    await cl.Message(content=f"Hello, I'm {assistant.name}!", disable_feedback=True).send()
 
 
+@cl.on_message
+async def run_conversation(message: cl.Message):
+    thread_id = cl.user_session.get("thread_id")
+   
+    attachments = await process_files(message.elements)
+
+    oai_message = await async_openai_client.beta.threads.messages.create(
+        thread_id=thread_id,
+        role="user",
+        content=message.content,
+        attachments=attachments,
+    )
+
+    async with async_openai_client.beta.threads.runs.stream(
+        thread_id=thread_id,
+        assistant_id=assistant.id,
+        event_handler=EventHandler(assistant_name="Climate Change Assistant"),
+    ) as stream:
+        await stream.until_done()
+
+    await handle_tool_calls(oai_message)
+
+async def handle_tool_calls(message):
+    print('starting handle tool calls')
+    thread_id = cl.user_session.get("thread_id")
+    # Create the run
+    #run = await async_openai_client.beta.threads.runs.create_and_poll(
+    #    thread_id=thread_id, assistant_id=assistant.id
+    #)
+    runs = async_openai_client.beta.threads.runs.list(thread_id)
+    print('-------------runs----------')
+    print(' ')
+    async for item in runs:
+        print(item)
+        drewp = item.id
+    print(drewp)
+
+    run = await async_openai_client.beta.threads.runs.retrieve(
+            thread_id=thread_id, run_id=drewp
+        )
+    print('-------------retrieve run----------')
+    print(' ')
+    print(run)
+    #async for item in run:
+    #    print(item)
+
+        # Fetch the run steps
+    run_steps = await async_openai_client.beta.threads.runs.steps.list(
+        thread_id=thread_id, run_id=run.id, order="asc"
+    )
+    print('------------- run steps----------')
+    print(' ')
+    async for item in run_steps:
+        print(item)
+
+    for step in run_steps.data:
+        # Fetch step details
+        run_step = await async_openai_client.beta.threads.runs.steps.retrieve(
+            thread_id=thread_id, run_id=run.id, step_id=step.id
+        )
+        step_details = run_step.step_details
+        # Update step content in the Chainlit UI
+        if step_details.type == "message_creation":
+            thread_message = await async_openai_client.beta.threads.messages.retrieve(
+                message_id=step_details.message_creation.message_id,
+                thread_id=thread_id,
+            )
+            await process_thread_message(message_references, thread_message)
+
+        print("line 116 about the call the tools call loop")
+        #count += 1
+        #print(str(count))
+
+        if step_details.type == "tool_calls":
+            loading_message = "Retrieving information, please stand by."
+            loading_message_to_assistant = cl.Message(author="Climate Change Assistant", content=loading_message)
+            await loading_message_to_assistant.send()  # output_message_to_assistant.send()
+    #if step_details.type == "tool_calls":
+    #    loading_message = "Retrieving information, please stand by."
+    #    loading_message_to_assistant = cl.Message(author="Climate Change Assistant", content=loading_message)
+    #    await loading_message_to_assistant.send()  # output_message_to_assistant.send()tool_calls = message.get('tool_calls', [])
+        
+            for tool_call in step_details.tool_calls:
+                if tool_call.type == "function" and len(tool_call.function.arguments) > 0:
+                    function_name = tool_call.function.name
+                    function_args = json.loads(tool_call.function.arguments)
+
+                    if function_name == "get_pf_data_timeline":
+                        address = function_args['address']
+                        country = function_args['country']
+                        units = function_args.get('units', 'C')
+                        parsed_output = at.get_pf_data_timeline(address, country, '1.5', units)
+
+                        if parsed_output is not None:
+                            # creating an initial output of what life is like today in that place
+                            output = ""
+
+                            loading_message_to_assistant = cl.Message(author="Climate Change Assistant", content=pr.timeline_message)
+                            await loading_message_to_assistant.send()
+                            
+                            summary = hf.story_completion(pr.one_five_degree_prompt, units, parsed_output[parsed_output.name.str.contains("10 hottest") | parsed_output.name.str.contains("Days above 35")])
+                            await stream_message(summary, cl)
+
+                            img_content, image_bytes = hf.get_image_response_SDXL(pr.image_prompt_SDXL + address + ' ' + country)
+                            img = cl.Image(content=image_bytes, name="image1", display="inline", size="large")
+                            await cl.Message(author="Climate Change Assistant", content=' ', elements=[img]).send()
+
+                            res = await ask_to_continue()
+
+                            while res and res.get("value") == "question":
+
+                                    question = await cl.AskUserMessage(content='How can I help?', timeout=180).send()
+            
+                                                # Use this to send the output of completion request into the next OpenAI API call.
+                                    question_response = hf.summary_completion(address, country, output, question['output'])
+
+                                    next_output = await stream_message(question_response, cl)
+
+                                    output += next_output
+
+                                                
+                                    # Call the function again instead of duplicating the code block
+                                    res = await ask_to_continue()
+
+                            warming_scenario = ['2.0', '3.0']
+                            for scenario in warming_scenario:
+                                # going to force units to be C b/c otherwise it's breaking the logic for how the 2/3 image gets displayed
+                                parsed_output = at.get_pf_data_timeline(address, country, warming_scenario[i], 'C') #units
+                                
+                                # filterine results to talk about change from baseline 
+                                summary = hf.story_completion(pr.timeline_prompts[i], units, parsed_output[parsed_output.name.str.contains('Change') | parsed_output.name.str.contains('Likelihood')])
+                                next_output = await stream_message(summary, cl)
+
+                                output += next_output
+
+                                data_changes = parsed_output[parsed_output['name'].str.contains('Change') | parsed_output['name'].str.contains('Likelihood')].copy()
+                                inpainting_keywords = hf.generate_inpainting_keywords(data_changes)
+                                img_content, image_bytes = hf.get_image_response_SDXL(prompt=pr.image_prompt_SDXL + address + ' ' + country, image_path=img_content, filtered_keywords=inpainting_keywords)
+                                img = cl.Image(content=image_bytes, name="image1", display="inline", size="large")
+                                print('\n generating image, complete')
+                                image_message_to_assistant = cl.Message(author="Climate Change Assistant", content=' ', elements=[img])
+                                await image_message_to_assistant.send() 
+
+                                #adding button to allow user to paginate the content
+                                res = await ask_to_continue()
+
+                                while res and res.get("value") == "question":
+
+                                    question = await cl.AskUserMessage(content='How can I help?', timeout=180).send()
+
+                                    # Use this to send the output of completion request into the next OpenAI API call.
+                                    question_response = hf.summary_completion(address, country, output, question['output'])
+
+                                    next_output = await stream_message(question_response, cl)
+
+                                    output += next_output
+
+                                    
+                                    # Call the function again instead of duplicating the code block
+                                    res = await ask_to_continue()
+                            
+                            final_message_content = hf.summary_completion(address, country, output, "Please give the user a personalized set of recommendations for how to adapt to climate change for their location and the questions they have asked (if any).")
+                            next_output = await stream_message(final_message_content, cl)
+                            output += next_output
+                            
+                            # Step 1: Ask users if they'd like to offer feedback
+                            res_want_feedback = await cl.AskActionMessage(content="Would you like to offer feedback?",
+                                                                        actions=[
+                                                                            cl.Action(name="yes", value="yes", label="✅ Yes"),
+                                                                            cl.Action(name="no", value="no", label="🚫 No")],
+                                                                        timeout=180).send()
+
+                            # Only proceed if they want to give feedback
+                            if res_want_feedback.get("value") == "yes":
+                                # Step 2: Ask "How was your experience?"
+                                res_feedback = await cl.AskActionMessage(content="How was your experience?",
+                                                                        actions=[
+                                                                            cl.Action(name="good", value="good", label="😀 Good. I'm ready to take action"),
+                                                                            cl.Action(name="IDK", value="IDK", label="😐 Not sure"),
+                                                                            cl.Action(name="no_good", value="no_good", label="🙁 Not good"),], 
+                                                                        timeout=180).send()
+
+                                if res_feedback.get("value") == "good":
+                                    thank_you_message = cl.Message(author="Climate Change Assistant", content="Thanks for your feedback!")
+                                    await thank_you_message.send()
+
+                                # Step 3: If "no good" or "not sure," ask why
+                                elif res_feedback.get("value") in ["no_good", "IDK"]:
+                                    res_reason = await cl.AskUserMessage(content="Could you please tell us why?").send()
+                                    
+                                    thank_you_message = cl.Message(author="Climate Change Assistant", content="Thanks for your feedback!")
+                                    await thank_you_message.send()
+                            
+                            next_steps = cl.Message(author="Climate Change Assistant", content=pr.next_steps)
+                            await next_steps.send()
+
+
+
+async def process_files(files: List[Element]):
+    file_ids = []
+    for file in files:
+        uploaded_file = await async_openai_client.files.create(
+            file=Path(file.path), purpose="assistants"
+        )
+        file_ids.append(uploaded_file.id)
+    return [
+        {
+            "file_id": file_id,
+            "tools": [{"type": "code_interpreter"}, {"type": "file_search"}],
+        }
+        for file_id in file_ids
+    ]
+
+@cl.on_audio_chunk
+async def on_audio_chunk(chunk: cl.AudioChunk):
+    if chunk.isStart:
+        buffer = BytesIO()
+        buffer.name = f"input_audio.{chunk.mimeType.split('/')[1]}"
+        cl.user_session.set("audio_buffer", buffer)
+        cl.user_session.set("audio_mime_type", chunk.mimeType)
+    cl.user_session.get("audio_buffer").write(chunk.data)
+
+@cl.on_audio_end
+async def on_audio_end(elements: list[Element]):
+    audio_buffer: BytesIO = cl.user_session.get("audio_buffer")
+    audio_buffer.seek(0)
+    audio_file = audio_buffer.read()
+    audio_mime_type: str = cl.user_session.get("audio_mime_type")
+    input_audio_el = cl.Audio(mime=audio_mime_type, content=audio_file, name=audio_buffer.name)
+    await cl.Message(author="You", type="user_message", content="", elements=[input_audio_el, *elements]).send()
+
+    transcription = await speech_to_text((audio_buffer.name, audio_file, audio_mime_type))
+    await main(cl.Message(author="You", content=transcription, elements=elements))
+
+@cl.step(type="tool")
+async def speech_to_text(audio_file):
+    response = await async_openai_client.audio.transcriptions.create(
+        model="whisper-1", file=audio_file
+    )
+    return response.text
+
+async def stream_message(content, cl):
+    message = cl.Message(author="Climate Change Assistant", content=content)
+    await message.send()
+
+async def ask_to_continue():
+    return await cl.AskActionMessage(content="Would you like to continue?", actions=[
+        cl.Action(name="yes", value="yes", label="✅ Yes"),
+        cl.Action(name="no", value="no", label="🚫 No")], timeout=180).send()
+
+'''
 @cl.on_chat_start
 async def start_chat():
     thread = await client.beta.threads.create()
     cl.user_session.set("thread", thread)
     await cl.Message(author="Climate Change Assistant", content=pr.welcome_message).send()
+'''
 
-
+'''
 @cl.on_message
 async def run_conversation(message_from_ui: cl.Message):
     count = 0
@@ -344,3 +612,4 @@ async def run_conversation(message_from_ui: cl.Message):
                 print('here is the failed run: ', run)
             break
             print('completed')
+'''

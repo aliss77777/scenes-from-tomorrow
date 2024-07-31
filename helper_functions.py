@@ -33,12 +33,12 @@ client = OpenAI(api_key=api_key)
 
 model = "gpt-4o" #"gpt-4-0125-preview"  # gpt-4 #gpt-3.5-turbo-16k
 
-
+'''
 pipeline_text2image = AutoPipelineForText2Image.from_pretrained("stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16") # digiplay/Landscape_PhotoReal_v1
 pipeline_image2image = AutoPipelineForImage2Image.from_pretrained("stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16") # digiplay/Landscape_PhotoReal_v1
 pipeline_text2image.to("cuda")
 pipeline_image2image.to("cuda")
-
+'''
 
 def convert_to_iso8601(date_str):
     try:
