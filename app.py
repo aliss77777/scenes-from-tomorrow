@@ -41,8 +41,8 @@ config.ui.name = assistant.name
 async def start_chat():
     thread = await async_openai_client.beta.threads.create()
     cl.user_session.set("thread_id", thread.id)
-    await cl.Avatar(name=assistant.name, path="./public/logo.png").send()
-    await cl.Message(content=f"Hello, I'm {assistant.name}!", disable_feedback=True).send()
+    #await cl.Avatar(name=assistant.name, path="./public/logo.png").send()
+    await cl.Message(content=f"Hello, I'm {assistant.name}!").send()
 
 
 @cl.on_message
@@ -107,16 +107,21 @@ async def handle_tool_calls(message):
         )
         step_details = run_step.step_details
         # Update step content in the Chainlit UI
+        print(step_details)
+
+        '''
         if step_details.type == "message_creation":
             thread_message = await async_openai_client.beta.threads.messages.retrieve(
                 message_id=step_details.message_creation.message_id,
                 thread_id=thread_id,
             )
             await process_thread_message(message_references, thread_message)
+        '''
 
-        print("line 116 about the call the tools call loop")
+        print("line 121 about the call the tools call loop")
         #count += 1
         #print(str(count))
+        
 
         if step_details.type == "tool_calls":
             loading_message = "Retrieving information, please stand by."
@@ -146,10 +151,22 @@ async def handle_tool_calls(message):
                             await loading_message_to_assistant.send()
                             
                             summary = hf.story_completion(pr.one_five_degree_prompt, units, parsed_output[parsed_output.name.str.contains("10 hottest") | parsed_output.name.str.contains("Days above 35")])
-                            await stream_message(summary, cl)
+                            print(summary)
+                            
+                            next_output =  await stream_message(summary, cl) #await stream_message
 
-                            img_content, image_bytes = hf.get_image_response_SDXL(pr.image_prompt_SDXL + address + ' ' + country)
-                            img = cl.Image(content=image_bytes, name="image1", display="inline", size="large")
+                            print('we called the new stream output')
+
+                            output += next_output
+
+                            print(next_output)
+
+                            with open('feedback_logs/73ee4d67-4857-47ec-b835-5b1cfb570b20.png', 'rb') as file:
+                                            img_content = file.read()
+
+                            #img_content, image_bytes = hf.get_image_response_SDXL(pr.image_prompt_SDXL + address + ' ' + country)
+                            img = cl.Image(content=img_content, name="image1", display="inline", size="large") # image_bytes
+                            print('\n Generating image, complete')
                             await cl.Message(author="Climate Change Assistant", content=' ', elements=[img]).send()
 
                             res = await ask_to_continue()
@@ -170,7 +187,7 @@ async def handle_tool_calls(message):
                                     res = await ask_to_continue()
 
                             warming_scenario = ['2.0', '3.0']
-                            for scenario in warming_scenario:
+                            for i in range(len(warming_scenario)):
                                 # going to force units to be C b/c otherwise it's breaking the logic for how the 2/3 image gets displayed
                                 parsed_output = at.get_pf_data_timeline(address, country, warming_scenario[i], 'C') #units
                                 
@@ -182,11 +199,10 @@ async def handle_tool_calls(message):
 
                                 data_changes = parsed_output[parsed_output['name'].str.contains('Change') | parsed_output['name'].str.contains('Likelihood')].copy()
                                 inpainting_keywords = hf.generate_inpainting_keywords(data_changes)
-                                img_content, image_bytes = hf.get_image_response_SDXL(prompt=pr.image_prompt_SDXL + address + ' ' + country, image_path=img_content, filtered_keywords=inpainting_keywords)
-                                img = cl.Image(content=image_bytes, name="image1", display="inline", size="large")
+                                #img_content, image_bytes = hf.get_image_response_SDXL(prompt=pr.image_prompt_SDXL + address + ' ' + country, image_path=img_content, filtered_keywords=inpainting_keywords)
+                                img = cl.Image(content=img_content, name="image1", display="inline", size="large") # image_bytes
                                 print('\n generating image, complete')
-                                image_message_to_assistant = cl.Message(author="Climate Change Assistant", content=' ', elements=[img])
-                                await image_message_to_assistant.send() 
+                                await cl.Message(author="Climate Change Assistant", content=' ', elements=[img]).send()
 
                                 #adding button to allow user to paginate the content
                                 res = await ask_to_continue()
@@ -240,6 +256,11 @@ async def handle_tool_calls(message):
                             
                             next_steps = cl.Message(author="Climate Change Assistant", content=pr.next_steps)
                             await next_steps.send()
+                            print(f"RUN id: {run.id}")
+                            print(f"RUN STATUS: {run.status}")
+                            run = await async_openai_client.beta.threads.runs.cancel(run.id,thread_id=thread_id)
+                            print(run)
+                            print(f"RUN STATUS: {run.status}")
 
 
 
@@ -286,6 +307,7 @@ async def speech_to_text(audio_file):
     )
     return response.text
 
+'''
 async def stream_message(content, cl):
     message = cl.Message(author="Climate Change Assistant", content=content)
     await message.send()
@@ -295,7 +317,7 @@ async def ask_to_continue():
         cl.Action(name="yes", value="yes", label="✅ Yes"),
         cl.Action(name="no", value="no", label="🚫 No")], timeout=180).send()
 
-'''
+
 @cl.on_chat_start
 async def start_chat():
     thread = await client.beta.threads.create()

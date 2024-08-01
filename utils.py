@@ -21,6 +21,7 @@ class DictToObject:
 
 async def stream_message(question_response, cl, initial_content=""):
     '''handler to stream a message back to user. native streaming not supported in assistants + chainlit v1'''
+    print('calling stream message function')
     msg = cl.Message(content=initial_content)
     await msg.send()
 
