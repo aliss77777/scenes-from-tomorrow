@@ -1,0 +1,13 @@
+notes 3/7/24
+
+goal: create a function loop for a timeline
+
+user flow:
+1. get location
+2. get summary prompt
+3. call api for 1.5
+4. get completion and image
+5. call api for 2.0
+6. get completion and image
+7. call api for 3.0
+8. get completion and image
