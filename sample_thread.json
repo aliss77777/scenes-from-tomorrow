@@ -1,0 +1,933 @@
+{
+    "createdAt": "2024-08-14T00:53:04.155Z",
+    "id": "11c42680-faec-4b01-adcb-86e7a8350b73",
+    "metadata": {
+      "chat_profile": "",
+      "chat_settings": {},
+      "client_type": "webapp",
+      "env": "{}",
+      "http_referer": "https://aliss77777-scenesfromtomorrow.hf.space/",
+      "id": "ddea2ae9-2eaf-4e18-9e30-7cb00a6d21a2",
+      "languages": "en,en-US;q=0.9",
+      "root_message": null,
+      "thread": null,
+      "user": null
+    },
+    "name": "utah",
+    "participant": {},
+    "steps": [
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:52:58.18",
+        "error": null,
+        "generation": null,
+        "id": "2723618f-70ac-4e45-be63-1ceeb57a5d26",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Please enter a location (city and country) to get started. By default I'll use Metric units but if you want Fahrenheit please say that (or 'F')."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:52:58.18",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:03.889",
+        "error": null,
+        "generation": null,
+        "id": "57373a36-f224-4091-8d7f-3f66b8c389c7",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "User",
+        "output": {
+          "content": "utah"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:03.889",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "user_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:04.17",
+        "error": null,
+        "generation": null,
+        "id": "83e5ca74-392b-4b48-afa4-42d246bb9d80",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": null,
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:04.17",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:07.79",
+        "error": null,
+        "generation": null,
+        "id": "76447557-b5c2-4307-8d0a-8bb3c9468d97",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Retrieving information, please stand by."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:07.79",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:09.06",
+        "error": null,
+        "generation": null,
+        "id": "707025ad-c302-411a-a10e-5891bc3e61c4",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "We'll take a look at 3 points in time. First we'll look at today, where global average temperatures will soon reach the 1.5°C warming level. Then, we'll look at the 2.0° scenario, which could arrive in the 2040's, and then the extreme 3.0°C scenario which could arrive in the mid-2060's on our current path of emissions."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:09.06",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:09.739",
+        "error": null,
+        "generation": null,
+        "id": "d9780fe3-0299-466b-8cf7-38c294bd7e23",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "In Utah, known for its incredible landscapes and outdoor activities, climate change is impacting life under the 1.5°C warming scenario we are experiencing today. The 10 hottest days of the year now reach temperatures as high as 32.0°C, making summer outings in National Parks like Zion and Arches more uncomfortable and potentially dangerous. What's more, nighttime doesn't bring much relief, with the 10 hottest nights hitting up to 16.0°C, making it harder to cool down and rest after a long day. The changing climate means trade-offs, such as finding ways to stay cool while still enjoying the natural beauty Utah is famous for."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:09.739",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "d1c25782-f1d6-47ca-890d-efa4c1e799b2",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/1bda2359-c090-4743-a1bc-aa53796884a8",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:53:12.647",
+        "error": null,
+        "generation": null,
+        "id": "bd78f1c1-0858-48ea-ae07-29910bc11a3b",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:12.647",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:12.692",
+        "error": null,
+        "generation": null,
+        "id": "6a01dc81-5cb8-4f61-b5bd-bd25ec16f0c7",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:12.692",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:19.159",
+        "error": null,
+        "generation": null,
+        "id": "238f754e-c6a9-48a2-bb07-6f619a75e11d",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "In a warmer climate by +2.0°C, Utah, known for its skiing and outdoor adventures, will likely see fewer snowy days and more extreme droughts. With up to 23 more hot days and a 9% chance of severe drought, it will be harder to maintain ski resorts and forests will be more prone to wildfires. To adapt, people will need to rethink water usage and land management to cope with these significant changes."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:19.159",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "289ccdee-ec95-453a-b298-39a7dd77495e",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/4b2f8a04-4238-4bf1-88be-9fa95ab3f501",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:53:20.752",
+        "error": null,
+        "generation": null,
+        "id": "35657232-0ee3-434d-8f57-b660d53d8c70",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:20.752",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:20.794",
+        "error": null,
+        "generation": null,
+        "id": "045bc618-fd9b-4b50-ba44-afa63347e20e",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:20.794",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:27.756",
+        "error": null,
+        "generation": null,
+        "id": "b42a7337-b87e-4ba0-a537-89a1c2301186",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Utah is known for its stunning national parks and outdoor recreation, but with a 3.0°C global temperature increase, things might change drastically. The state will see fewer snowy days and significantly less annual precipitation, making winters drier. Additionally, more dry hot days and an increased wildfire danger will make outdoor activities riskier and could harm both the environment and the tourism industry."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:27.756",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "25b0e507-781c-4bf6-bb9a-7ab6d3feb0e8",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/6fb1a46d-36d6-4c4e-98a3-b670fed8f424",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:53:29.327",
+        "error": null,
+        "generation": null,
+        "id": "0879506e-8598-4bc0-beb4-6dbbafb19485",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:29.327",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:29.371",
+        "error": null,
+        "generation": null,
+        "id": "15807ff8-6537-4928-8a5e-71c264cd969e",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:29.371",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:36.681",
+        "error": null,
+        "generation": null,
+        "id": "cf356da5-4b8d-42fc-bb61-66baed97d888",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Given the current and projected impacts of climate change in Utah, here are some personalized recommendations to adapt to these changes:\n\n### Adapt to Hotter Summers\n1. **Outdoor Activity Timing**: Plan outdoor activities in the early morning or late evening to avoid the peak heat of the day. This strategy can help you stay safe while still enjoying Utah's beautiful landscapes.\n2. **Hydration**: Always carry sufficient water and stay hydrated, particularly when hiking or engaging in other strenuous activities at national parks.\n3. **Cooling Gear**: Invest in cooling clothing and gear like hats, cooling towels, and UV protection to help manage the intense daytime heat.\n\n### Adjust to Warmer Nights\n1. **Rest and Sleep**: Use fans, air-conditioning, or cooling bedding to ensure a comfortable night's sleep. This is particularly important after a long day spent outdoors.\n2. **Building Adjustments**: If possible, install energy-efficient windows, insulation, and vents to keep homes cooler during the night.\n\n### Prepare for Less Snow and Increased Drought\n1. **Water Conservation**: Implement water-saving measures such as using drought-resistant plants in your garden, installing low-flow showerheads, and collecting rainwater for irrigation.\n2. **Winter Sports Alternatives**: If skiing is a big part of your lifestyle, explore alternative winter sports or activities that are less dependent on snow conditions, such as winter hiking or ice skating.\n3. **Ski Resort Adaptations**: Support ski resorts that are adopting sustainable practices and diversifying their activities to include summer attractions.\n\n### Wildfire Preparedness\n1. **Defensible Space**: If you live near forests or wildlands, create a defensible space by clearing vegetation around your home to reduce the risk of wildfires.\n2. **Emergency Plans**: Have an emergency preparedness plan and kit ready, including evacuation routes and essential supplies.\n3. **Support Forest Management**: Advocate for and participate in community efforts related to forest management and wildfire prevention.\n\n### Adaptations for Reduced Precipitation\n1. **Drought-Resistant Landscaping**: Opt for xeriscaping in your garden, which uses plants that require minimal water.\n2. **Rainwater Harvesting**: Equip your property with rain barrels and other water collection systems to make the most of limited rainfall.\n3. **Water-Efficient Appliances**: Invest in high-efficiency washing machines, dishwashers, and irrigation systems to minimize water usage.\n\n### Supporting Conservation and Sustainable Tourism\n1. **Eco-Tourism**: Choose eco-friendly tourism providers and activities that help preserve Utah's natural environments.\n2. **Local Support**: Support local conservation efforts and initiatives that aim to reduce the impact of climate change on your community.\n3. **Educational Programs**: Participate in or promote educational programs about climate change and its impact on Utah to raise awareness and collectively work toward solutions.\n\nBy making these adjustments, you can continue to enjoy Utah's stunning landscapes and outdoor activities while helping to mitigate and adapt to the impacts of climate change."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:36.681",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:45.541",
+        "error": null,
+        "generation": null,
+        "id": "99c97de9-9f30-42fc-8a44-047a22953b3c",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** 🚫 No"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:45.541",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:53:50.412",
+        "error": null,
+        "generation": null,
+        "id": "4a1c02d7-9e70-45fb-8895-6930a41b3b97",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "In conclusion, please keep in mind that if we act rapidly to get to zero emissions and find ways to increase carbon stores, we can make reaching 3.0°C warming a low probability.\n\nWhat would you like to do next? You can ask me questions about the scenes you just saw or enter a new location.\n\nAlso please give me a few second to process things before I can respond to your question. 🤖"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:53:50.412",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:26.842",
+        "error": null,
+        "generation": null,
+        "id": "ab01ecd0-d0a1-41eb-9861-d9deb5e3cdb3",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "User",
+        "output": {
+          "content": "new location. New Mexico"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:26.842",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "user_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:27.032",
+        "error": null,
+        "generation": null,
+        "id": "56ccdd1f-a4a7-462a-8bbe-4f73a3bd271c",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": null,
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:27.032",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:29.487",
+        "error": null,
+        "generation": null,
+        "id": "f67e6fb6-272d-4bc9-bc25-1f6c1efe626b",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Retrieving information, please stand by."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:29.487",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:30.2",
+        "error": null,
+        "generation": null,
+        "id": "9f76de16-8f90-4f78-8bc3-e069fa711eb5",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "We'll take a look at 3 points in time. First we'll look at today, where global average temperatures will soon reach the 1.5°C warming level. Then, we'll look at the 2.0° scenario, which could arrive in the 2040's, and then the extreme 3.0°C scenario which could arrive in the mid-2060's on our current path of emissions."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:30.2",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:30.812",
+        "error": null,
+        "generation": null,
+        "id": "47ef3e6e-0599-4db4-b0a1-d374e7e7c414",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "New Mexico, known for its rich cultural heritage and beautiful desert landscapes, is experiencing significant changes with the 1.5°C warming scenario. The 10 hottest days now reach temperatures between 32.0°C and 35.0°C, and there are up to 2 days a year where the temperature exceeds 35°C (95°F). This can make outdoor activities, like visiting historic sites or hiking in places like the Sandia Mountains, much more uncomfortable and even dangerous during the hottest periods, pushing residents and tourists to rethink their daily plans and schedules."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:30.812",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "1ba2603b-e736-46b5-907f-52a0c0de167e",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/4b0eaeed-9f98-4c6d-898f-07dd9a93bf51",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:55:32.715",
+        "error": null,
+        "generation": null,
+        "id": "920411d3-74fc-4530-a1a8-36a2b2e5656e",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:32.715",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:32.757",
+        "error": null,
+        "generation": null,
+        "id": "8def021b-3c47-4beb-8242-e7190c999606",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:32.757",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:37.973",
+        "error": null,
+        "generation": null,
+        "id": "f64dee16-1b98-486a-8fc9-d1fbb9381429",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "In a climate that's 2.0°C warmer, New Mexico could see 16 more scorching hot days each year and a rise in wildfire danger. The state might get up to 110 mm less rain annually, making droughts and water shortages more common. These changes mean New Mexicans will have to find new ways to deal with water and stay safe during more frequent wildfires."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:37.973",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "a1af74a1-99e2-428c-bbd7-dbecd1ef269e",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/2698ac15-97e2-4078-8ca2-f11b612a25aa",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:55:39.38",
+        "error": null,
+        "generation": null,
+        "id": "c335ab0b-d51b-47fe-b6da-a4ce4ca7ca3a",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:39.38",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:39.423",
+        "error": null,
+        "generation": null,
+        "id": "36c2ee5d-ca23-43fe-b12f-15f5ce475981",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:39.423",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:50.847",
+        "error": null,
+        "generation": null,
+        "id": "6b941d7a-d8ff-44e8-b3aa-ede901b7348d",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "New Mexico, known for its desert landscapes and vibrant culture, will face significant changes with a 3.0°C rise in global temperatures. The state will experience an increase of around 26 to 33 more dry hot days each year and about 24 to 27 more wildfire danger days. These changes could severely impact water resources, agriculture, and daily life, making it crucial for communities to adapt to these new climatic extremes."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:50.847",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [
+          {
+            "id": "77af800b-1a72-451e-a56b-80e170f9707e",
+            "metadata": {
+              "display": "inline",
+              "language": null,
+              "page": null,
+              "size": "large",
+              "type": "image"
+            },
+            "mime": "image/png",
+            "name": "image1",
+            "objectKey": "projects/Climate-Change-Assistant-GpwYcBiMWzLQ/threads/11c42680-faec-4b01-adcb-86e7a8350b73/files/ad31b704-50ae-4869-bf39-03cf72a92fad",
+            "url": null
+          }
+        ],
+        "endTime": "2024-08-14T00:55:52.41",
+        "error": null,
+        "generation": null,
+        "id": "80e7d8c6-313e-4763-b231-53f5c0b0e15d",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": " "
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:52.41",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:52.454",
+        "error": null,
+        "generation": null,
+        "id": "c14cd6ac-f43f-4759-83d1-e6e37626b4b5",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** ➡️ Let's keep going"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:52.454",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:55:55.463",
+        "error": null,
+        "generation": null,
+        "id": "7f18e91b-e57c-4596-9a91-4a0b6c8c6e73",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "Given the projected impacts of climate change on New Mexico, here are some personalized recommendations to adapt to these changes:\n\n### Heat Adaptation:\n1. **Shift Outdoor Activities**: Opt for early morning or late evening for outdoor activities to avoid extreme heat. This is especially important for hiking or exploring historical sites.\n2. **Stay Hydrated and Cool**: Always carry water and wear light, breathable clothing. Use cooling towels or neck wraps if you plan to be outdoors for extended periods.\n3. **Heat-Resistant Plants**: In your garden or landscape, consider planting drought-resistant and heat-tolerant plants to reduce the need for frequent watering.\n\n### Water Conservation:\n1. **Rainwater Harvesting**: Install systems to collect and store rainwater. This can help supplement your water supply during dry periods.\n2. **Efficient Irrigation**: Use drip irrigation or soaker hoses to minimize water waste. Water your plants during cooler parts of the day to reduce evaporation.\n3. **Reduce Water Usage**: Implement water-saving devices such as low-flow showerheads and dual-flush toilets. Fix any leaks promptly to avoid water wastage.\n\n### Wildfire Preparedness:\n1. **Create Defensible Space**: Clear vegetation and other flammable materials at least 30 feet from your home. This helps protect your property from wildfires.\n2. **Emergency Kits and Plans**: Keep an emergency kit ready and have an evacuation plan in place. Make sure all family members are aware of the plan.\n3. **Stay Informed**: Monitor local news and weather reports for wildfire warnings and updates. Sign up for emergency alerts specific to your area.\n\n### Community and Lifestyle Adjustments:\n1. **Build Community Networks**: Form or join local groups focused on community resilience. Working together can improve shared resources and support.\n2. **Support Local Agriculture**: Shift to locally-sourced produce which generally has a smaller carbon footprint and supports local farmers.\n3. **Energy Efficiency**: Invest in energy-efficient appliances and consider renewable energy options like solar panels to reduce carbon footprints and utility bills.\n\n### Agriculture Adaptation:\n1. **Drought-Resistant Crops**: If you are involved in agriculture, consider planting crops that are more resistant to drought conditions.\n2. **Soil Management**: Utilize practices such as mulching and no-till farming to retain soil moisture and improve crop resilience.\n\n### Health Precautions:\n1. **Air Quality Monitoring**: Poor air quality from wildfires can have health impacts. Use air purifiers indoors and limit outdoor activities when air quality is poor.\n2. **Heat-Related Illness Prevention**: Educate yourself and your family on the signs of heat-related illnesses like heat stroke and heat exhaustion.\n\nImplementing these recommendations can help you better adapt to the changing climate in New Mexico, ensuring that you and your community stay resilient in the face of these challenges."
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:55:55.463",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:56:07.036",
+        "error": null,
+        "generation": null,
+        "id": "e6d5fd6e-6b07-4eb8-b468-f4e78105859e",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": true
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "**Selected:** 🚫 No"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:56:07.036",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      },
+      {
+        "attachments": [],
+        "endTime": "2024-08-14T00:56:17.7",
+        "error": null,
+        "generation": null,
+        "id": "77d91709-644c-40ca-8f79-642aaac149bf",
+        "input": null,
+        "metadata": {
+          "disableFeedback": false,
+          "language": null,
+          "showInput": null,
+          "waitForAnswer": false
+        },
+        "name": "Climate Change Assistant",
+        "output": {
+          "content": "In conclusion, please keep in mind that if we act rapidly to get to zero emissions and find ways to increase carbon stores, we can make reaching 3.0°C warming a low probability.\n\nWhat would you like to do next? You can ask me questions about the scenes you just saw or enter a new location.\n\nAlso please give me a few second to process things before I can respond to your question. 🤖"
+        },
+        "parentId": null,
+        "rootRunId": null,
+        "scores": [],
+        "startTime": "2024-08-14T00:56:17.7",
+        "tags": null,
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "type": "assistant_message"
+      }
+    ],
+    "tags": null
+  }
+  

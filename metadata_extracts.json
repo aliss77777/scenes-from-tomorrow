@@ -1,0 +1,42 @@
+[
+    {
+        "threadId": "28b3599d-2035-45f2-9691-110e44211321",
+        "recommendation_flag": "yes",
+        "number_of_locations": 1,
+        "feedback_flag": "no",
+        "number_of_steps": 22,
+        "number_of_questions": 0,
+        "time_out_flag": "yes",
+        "irrelevant_input_flag": "no"
+    },
+    {
+        "threadId": "1c77e293-5edc-4265-8357-80525973d305",
+        "recommendation_flag": "no",
+        "number_of_locations": 1,
+        "feedback_flag": "no",
+        "number_of_steps": 15,
+        "number_of_questions": 0,
+        "time_out_flag": "yes",
+        "irrelevant_input_flag": "no"
+    },
+    {
+        "threadId": "11c42680-faec-4b01-adcb-86e7a8350b73",
+        "recommendation_flag": "yes",
+        "number_of_locations": 2,
+        "feedback_flag": "no",
+        "number_of_steps": 39,
+        "number_of_questions": 0,
+        "time_out_flag": "no",
+        "irrelevant_input_flag": "no"
+    },
+    {
+        "threadId": "5f93c544-ba5e-4a96-9cb3-e29d4bb5cd98",
+        "recommendation_flag": "yes",
+        "number_of_locations": 2,
+        "feedback_flag": "no",
+        "number_of_steps": 51,
+        "number_of_questions": 0,
+        "time_out_flag": "no",
+        "irrelevant_input_flag": "no"
+    }
+]
