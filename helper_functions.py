@@ -9,6 +9,8 @@ import sys
 import io
 import base64
 import urllib
+import threading
+import traceback
 from PIL import Image
 import cv2
 from diffusers import AutoPipelineForText2Image, AutoPipelineForImage2Image
@@ -26,14 +28,47 @@ pf_api_url = "https://graphql.probablefutures.org"
 
 model = "gpt-4o"  # Model configuration for OpenAI
 
-pipeline_text2image = AutoPipelineForText2Image.from_pretrained(
-    "stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16"
-)
-pipeline_image2image = AutoPipelineForImage2Image.from_pretrained(
-    "stabilityai/sdxl-turbo", torch_dtype=torch.float16, variant="fp16"
-)
-pipeline_text2image.to("cuda")
-pipeline_image2image.to("cuda")
+# SDXL pipelines are multi-GB downloads + CUDA init. Loading them at import
+# time blocks Chainlit from ever binding its port, which reads as a silent
+# freeze on hosts that health-check the port (e.g. HF Spaces). Instead we
+# load them lazily in a background thread so the app starts immediately;
+# get_image_response_SDXL() blocks on _load_sdxl_pipelines() only if a user
+# reaches image generation before the background load has finished.
+pipeline_text2image = None
+pipeline_image2image = None
+_pipeline_lock = threading.Lock()
+
+
+def _load_sdxl_pipelines():
+    global pipeline_text2image, pipeline_image2image
+    with _pipeline_lock:
+        if pipeline_text2image is not None:
+            return
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        print(f"[SDXL] loading stabilityai/sdxl-turbo pipelines on {device}...", flush=True)
+        if device == "cpu":
+            print("[SDXL] WARNING: no CUDA device visible, falling back to CPU (this will be very slow)", flush=True)
+        try:
+            dtype = torch.float16 if device == "cuda" else torch.float32
+            variant = "fp16" if device == "cuda" else None
+            t2i = AutoPipelineForText2Image.from_pretrained(
+                "stabilityai/sdxl-turbo", torch_dtype=dtype, variant=variant
+            )
+            i2i = AutoPipelineForImage2Image.from_pretrained(
+                "stabilityai/sdxl-turbo", torch_dtype=dtype, variant=variant
+            )
+            t2i.to(device)
+            i2i.to(device)
+            pipeline_text2image = t2i
+            pipeline_image2image = i2i
+            print("[SDXL] pipelines ready", flush=True)
+        except Exception:
+            print("[SDXL] failed to load pipelines:", flush=True)
+            traceback.print_exc()
+            raise
+
+
+threading.Thread(target=_load_sdxl_pipelines, daemon=True, name="sdxl-warmup").start()
 
 def convert_to_iso8601(date_str):
     """
@@ -160,8 +195,9 @@ def get_image_response_SDXL(prompt, image_path=None, filtered_keywords=None):
     Returns:
         tuple: The generated image and its byte representation.
     """
-    print('starting SDXL')
-    
+    print('starting SDXL', flush=True)
+    _load_sdxl_pipelines()
+
     if image_path is None:
         result_image = pipeline_text2image(
             prompt=prompt, num_inference_steps=2, guidance_scale=0.0
